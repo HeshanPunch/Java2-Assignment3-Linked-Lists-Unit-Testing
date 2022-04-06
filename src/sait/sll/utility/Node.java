@@ -1,15 +1,22 @@
 package sait.sll.utility;
 
 public class Node {
-	
+
 	private Object data;
 	private Node next;
-	
+
+	//constructor for node with data(data) and a successor node(next)
 	public Node(Object data, Node next) {
 		super();
 		this.data = data;
 		this.next = next;
-		
+
+	}
+	
+	//constructor for the last node, next is null
+	public Node(Object data) {
+		this.data = data;
+		this.next = null;
 		
 	}
 
@@ -31,7 +38,7 @@ public class Node {
 
 	public void setSuccessor(Node node) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public Node getSuccessor() {
@@ -43,7 +50,5 @@ public class Node {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

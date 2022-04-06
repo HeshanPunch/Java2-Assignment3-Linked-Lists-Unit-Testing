@@ -2,6 +2,10 @@ package sait.sll.utility;
 
 
 public class SLL implements LinkedListADT {
+	
+	private Node head;
+	private Node tail;
+	
 
 	/**
 	 * Checks if the list is empty.
@@ -24,6 +28,14 @@ public class SLL implements LinkedListADT {
 	 * @param data Data to append.
 	 */
 	public void append(Object data) {
+		if(!isEmpty()) {
+			Node node = new Node(data);
+			tail.setNext(node);
+			tail = tail.getNext();
+		}else {
+			Node node = new Node(data);
+			tail = head = node;
+		}
 	}
 	
 
@@ -32,6 +44,14 @@ public class SLL implements LinkedListADT {
 	 * @param data Data to store inside element.
 	 */
 	public void prepend(Object data) {
+		Node node = new Node(data, head);
+		head = node;
+		
+		if(tail == null) {
+			tail = head;
+		}
+		
+		
 	}
 	
 	
