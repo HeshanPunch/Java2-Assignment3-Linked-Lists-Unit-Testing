@@ -1,5 +1,5 @@
 package sait.sll.utility;
-//hi
+
 
 public class SLL implements LinkedListADT {
 
