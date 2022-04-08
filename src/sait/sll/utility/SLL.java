@@ -1,7 +1,13 @@
 package sait.sll.utility;
 
-public class SLL implements LinkedListADT {
+import java.io.Serializable;
 
+public class SLL implements LinkedListADT, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3573643620247565377L;
 	private Node head;
 	private Node tail;
 

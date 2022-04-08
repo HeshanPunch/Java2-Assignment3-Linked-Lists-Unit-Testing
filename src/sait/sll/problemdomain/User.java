@@ -1,4 +1,7 @@
 package sait.sll.problemdomain;
+
+import java.io.Serializable;
+
 //helo I am Lauren
 /**
  * Represents a user.
@@ -6,7 +9,12 @@ package sait.sll.problemdomain;
  * @version 2019-07-25
  *
  */
-public class User {
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1711796045811471046L;
+
 	private int id;
 	
 	private String name;
