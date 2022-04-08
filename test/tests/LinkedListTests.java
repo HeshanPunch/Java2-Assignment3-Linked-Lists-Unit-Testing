@@ -64,11 +64,14 @@ class LinkedListTests {
 		// Test the linked list is not empty.
 		assertFalse(this.linkedList.isEmpty());
 		
+		
 		// Test the size is 4
 		assertEquals(4, this.linkedList.size());
+		
 
 		// Test the first node value is a
 		assertEquals("a", this.linkedList.retrieve(0));
+		System.out.println("Retrieve: " + this.linkedList.retrieve(0));//remove this - HESHAN
 
 		// Test the second node value is b
 		assertEquals("b", this.linkedList.retrieve(1));
@@ -89,7 +92,7 @@ class LinkedListTests {
 		this.linkedList.prepend("b");
 		this.linkedList.prepend("c");
 		this.linkedList.prepend("d");
-		
+				
 		/**
 		 * Linked list should now be:
 		 * 

@@ -13,11 +13,11 @@ public class SLL implements LinkedListADT {
 	 * @return True if it is empty.
 	 */
 	public boolean isEmpty() {
-	if (head == tail && head == null) {
-		return true;
-	}else {
-		return false;
-	}
+		if (head == tail && head == null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -32,7 +32,6 @@ public class SLL implements LinkedListADT {
 	 * @param data Data to append.
 	 */
 	public void append(Object data) {
-		System.out.println(data + " appending line31");
 		if (!isEmpty()) {
 			Node node = new Node(data);
 			tail.setNext(node);
@@ -88,7 +87,7 @@ public class SLL implements LinkedListADT {
 	 * @return Size of list (0 meaning empty)
 	 */
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	/**
@@ -113,14 +112,14 @@ public class SLL implements LinkedListADT {
 		if (index < 0 || index >= size) {
 			return null;
 		} else if (index == 0) {
-			return head;
+			return head.getData();
 
 		} else {
 			Node nodeAtIndex = head;
 			for (int i = 0; i < index; i++) {
 				nodeAtIndex = nodeAtIndex.getNext();
 			}
-			return nodeAtIndex;
+			return nodeAtIndex.getData();
 
 		}
 
@@ -144,6 +143,27 @@ public class SLL implements LinkedListADT {
 	 */
 	public boolean contains(Object data) {
 		return false;
+	}
+
+	// for testing - remove later
+	public void print() {
+		for (Node tempNode = head; tempNode != null; tempNode = tempNode.getNext()) {
+			System.out.print(tempNode.getData().toString() + " ");
+		}
+	}
+
+//for testing
+	public static void main(String[] args) {
+		SLL sll = new SLL();
+		sll.append("x");
+		sll.append("y");
+		sll.append("z");
+
+		System.out.println(sll.size);
+		sll.print();
+		System.out.println("Retrieve 1 : " + sll.retrieve(1));
+		
+
 	}
 
 }
