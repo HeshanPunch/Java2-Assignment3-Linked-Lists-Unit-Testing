@@ -71,8 +71,7 @@ class LinkedListTests {
 
 		// Test the first node value is a
 		assertEquals("a", this.linkedList.retrieve(0));
-		System.out.println("Retrieve: " + this.linkedList.retrieve(0));//remove this - HESHAN
-
+	
 		// Test the second node value is b
 		assertEquals("b", this.linkedList.retrieve(1));
 		

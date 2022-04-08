@@ -36,19 +36,5 @@ public class Node {
 		this.next = next;
 	}
 
-	public void setSuccessor(Node node) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Node getSuccessor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Object getElement() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

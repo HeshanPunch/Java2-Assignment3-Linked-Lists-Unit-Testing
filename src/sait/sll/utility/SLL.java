@@ -79,6 +79,7 @@ public class SLL implements LinkedListADT {
 	 *                                      than size - 1 of list.
 	 */
 	public void replace(Object data, int index) throws IndexOutOfBoundsException {
+
 	}
 
 	/**
@@ -98,6 +99,25 @@ public class SLL implements LinkedListADT {
 	 *                                      size - 1.
 	 */
 	public void delete(int index) throws IndexOutOfBoundsException {
+
+		if (index < 0 || index > this.size) {
+			System.out.println("Invalid Index, cant delete at: " + index);
+			return;
+		} else if (index == 0) {
+			head = head.getNext();
+
+		} else {
+			Node prevNode = head;
+			for (int i = 1; i < index; i++) {
+				prevNode = prevNode.getNext(); // exits at index - 1 node
+			}
+			Node current = prevNode.getNext(); // assigns current to index
+			prevNode.setNext(current.getNext()); // assigns index -1 node's next to index +1 node
+
+		}
+
+		this.size--;
+
 	}
 
 	/**
@@ -132,7 +152,16 @@ public class SLL implements LinkedListADT {
 	 * @return First of index of element with matching data or -1 if not found.
 	 */
 	public int indexOf(Object data) {
-		return 0;
+		int index = 0;
+
+		for (int i = 0; i < this.size; i++) {
+			if (data.equals(retrieve(i))) {
+				index = i;
+				break;
+			}
+		}
+
+		return index;
 	}
 
 	/**
@@ -158,11 +187,10 @@ public class SLL implements LinkedListADT {
 		sll.append("x");
 		sll.append("y");
 		sll.append("z");
-
-		System.out.println(sll.size);
 		sll.print();
-		System.out.println("Retrieve 1 : " + sll.retrieve(1));
-		
+	
+		System.out.println(" Size is: " + sll.size);
+		sll.print();
 
 	}
 
