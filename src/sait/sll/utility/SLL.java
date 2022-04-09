@@ -98,7 +98,7 @@ public class SLL implements LinkedListADT, Serializable {
 		}
 	}	
 		
-	}
+	
 
 	/**
 	 * Replaces the data at index.
