@@ -30,6 +30,8 @@ public class SLL implements LinkedListADT, Serializable {
 	 * Clears the list.
 	 */
 	public void clear() {
+		size = 0;
+		head = tail = null;
 	}
 
 	/**
@@ -74,6 +76,28 @@ public class SLL implements LinkedListADT, Serializable {
 	 *                                      size of the list.
 	 */
 	public void insert(Object data, int index) throws IndexOutOfBoundsException {
+	Node newNode = new Node(data);
+
+		if(index == 0) {
+			prepend(data);
+			
+		}else if(index >= size()) {
+			//add last
+			tail.setNext(newNode);
+			tail = newNode;
+			size++;
+		}else {
+			Node current = head;
+			for (int i = 1; i < index; i++) {
+				current = current.getNext();
+			}
+
+			newNode.setNext(current.getNext());
+			current.setNext(newNode);
+			size++;
+		}
+	}	
+		
 	}
 
 	/**
@@ -85,7 +109,10 @@ public class SLL implements LinkedListADT, Serializable {
 	 *                                      than size - 1 of list.
 	 */
 	public void replace(Object data, int index) throws IndexOutOfBoundsException {
-
+		Node currentNode = head;
+		for(int i = 0; i < index; i++) {
+			currentNode = currentNode.getNext(); //location
+		}currentNode.setData(data);
 	}
 
 	/**
@@ -177,7 +204,20 @@ public class SLL implements LinkedListADT, Serializable {
 	 * @return True if element exists with value.
 	 */
 	public boolean contains(Object data) {
-		return false;
+		boolean test = false;
+		Node currentNode = head;
+
+		while(currentNode != null) {
+			if(currentNode.getData() == data) {
+				test = true;
+			}
+			currentNode = currentNode.getNext();
+		}
+		if(test) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	// for testing - remove later
