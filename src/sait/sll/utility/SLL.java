@@ -76,17 +76,17 @@ public class SLL implements LinkedListADT, Serializable {
 	 *                                      size of the list.
 	 */
 	public void insert(Object data, int index) throws IndexOutOfBoundsException {
-	Node newNode = new Node(data);
+		Node newNode = new Node(data);
 
-		if(index == 0) {
+		if (index == 0) {
 			prepend(data);
-			
-		}else if(index >= size()) {
-			//add last
+
+		} else if (index >= size()) {
+			// add last
 			tail.setNext(newNode);
 			tail = newNode;
 			size++;
-		}else {
+		} else {
 			Node current = head;
 			for (int i = 1; i < index; i++) {
 				current = current.getNext();
@@ -96,9 +96,7 @@ public class SLL implements LinkedListADT, Serializable {
 			current.setNext(newNode);
 			size++;
 		}
-	}	
-		
-	
+	}
 
 	/**
 	 * Replaces the data at index.
@@ -110,9 +108,10 @@ public class SLL implements LinkedListADT, Serializable {
 	 */
 	public void replace(Object data, int index) throws IndexOutOfBoundsException {
 		Node currentNode = head;
-		for(int i = 0; i < index; i++) {
-			currentNode = currentNode.getNext(); //location
-		}currentNode.setData(data);
+		for (int i = 0; i < index; i++) {
+			currentNode = currentNode.getNext(); // location
+		}
+		currentNode.setData(data);
 	}
 
 	/**
@@ -162,20 +161,31 @@ public class SLL implements LinkedListADT, Serializable {
 	 *                                      than size - 1 of the list.
 	 */
 	public Object retrieve(int index) throws IndexOutOfBoundsException {
-		if (index < 0 || index >= size) {
-			return null;
-		} else if (index == 0) {
-			return head.getData();
+		Object o = null;
+		try {
+			if (index < 0 || index > size - 1) {
+				throw new IndexOutOfBoundsException();
+			} else if (index == 0) {
+				return head.getData();
 
-		} else {
-			Node nodeAtIndex = head;
-			for (int i = 0; i < index; i++) {
-				nodeAtIndex = nodeAtIndex.getNext();
+			} else {
+				Node nodeAtIndex = head;
+				for (int i = 0; i < index; i++) {
+					nodeAtIndex = nodeAtIndex.getNext();
+				}
+				o = nodeAtIndex.getData();
+
 			}
-			return nodeAtIndex.getData();
 
+		} catch (IndexOutOfBoundsException iob) {
+			System.out.println("IndexOutOfBoundsException for passed index: " + index);
+			return null;
+
+		} catch (Exception ex) {
+			System.out.println("Unknown error: index " + index);
+			return null;
 		}
-
+		return o;
 	}
 
 	/**
@@ -185,7 +195,7 @@ public class SLL implements LinkedListADT, Serializable {
 	 * @return First of index of element with matching data or -1 if not found.
 	 */
 	public int indexOf(Object data) {
-		int index = 0;
+		int index = -1;
 
 		for (int i = 0; i < this.size; i++) {
 			if (data.equals(retrieve(i))) {
@@ -207,15 +217,15 @@ public class SLL implements LinkedListADT, Serializable {
 		boolean test = false;
 		Node currentNode = head;
 
-		while(currentNode != null) {
-			if(currentNode.getData() == data) {
+		while (currentNode != null) {
+			if (currentNode.getData() == data) {
 				test = true;
 			}
 			currentNode = currentNode.getNext();
 		}
-		if(test) {
+		if (test) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -234,7 +244,7 @@ public class SLL implements LinkedListADT, Serializable {
 		sll.append("y");
 		sll.append("z");
 		sll.print();
-	
+
 		System.out.println(" Size is: " + sll.size);
 		sll.print();
 

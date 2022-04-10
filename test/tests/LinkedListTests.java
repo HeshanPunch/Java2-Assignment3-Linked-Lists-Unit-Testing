@@ -253,4 +253,63 @@ class LinkedListTests {
 		String value = (String) this.linkedList.retrieve(1);
 		assertEquals("b", value);
 	}
+	
+	
+	/**
+	 * Tests indexOf method and exception case
+	 */
+	@Test
+	void testIndexOf() {
+		this.linkedList.append("a");
+		this.linkedList.append("b");
+		this.linkedList.append("c");
+		this.linkedList.append("d");
+		
+		/**
+		 * Linked list should now be:
+		 * 
+		 * a -> b -> c -> d
+		 */
+		
+		
+		int index = this.linkedList.indexOf("b");
+		assertEquals(1, index);
+		
+		index = this.linkedList.indexOf("c");
+		assertEquals(2, index);
+		
+		index = this.linkedList.indexOf("a");
+		assertEquals(0, index);
+		
+		index = this.linkedList.indexOf("1");
+		assertEquals(-1, index);//invalid error case
+		
+		
+	}
+	
+	/**
+	 * Tests exception IndexOutOfBoundsException
+	 */
+	@Test
+	void testIndexOutOfBounds() {
+		this.linkedList.append("a");
+		this.linkedList.append("b");
+		this.linkedList.append("c");
+	
+		
+		/**
+		 * Linked list should now be:
+		 * 
+		 * a -> b -> c
+		 */
+		
+		//returns null and prints error message, exception is handled
+		assertEquals(null, this.linkedList.retrieve(3));	
+		assertEquals(null, this.linkedList.retrieve(-3));
+		assertEquals(null, this.linkedList.retrieve(100));
+		
+		//this is correct
+		assertEquals("b", this.linkedList.retrieve(1));	
+		
+	}
 }
