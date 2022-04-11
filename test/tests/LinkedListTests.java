@@ -314,4 +314,30 @@ class LinkedListTests {
 		assertEquals("b", this.linkedList.retrieve(1));	
 		
 	}
+	
+	/**
+	 * Tests clearing list
+	 */
+	@Test
+	void testClearList() {
+		this.linkedList.append("a");
+		this.linkedList.append("b");
+		this.linkedList.append("c");
+	
+		
+		/**
+		 * Linked list should now be, with size 3:
+		 * 
+		 * a -> b -> c
+		 */
+		//before clearing should be 3
+		assertEquals(3, this.linkedList.size());
+		
+		//this clears the list
+		this.linkedList.clear();
+		
+		//this should be size 0
+		assertEquals(0, this.linkedList.size());	
+		
+	}
 }

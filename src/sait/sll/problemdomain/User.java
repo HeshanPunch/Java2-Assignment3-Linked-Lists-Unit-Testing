@@ -2,7 +2,6 @@ package sait.sll.problemdomain;
 
 import java.io.Serializable;
 
-//helo I am Lauren
 /**
  * Represents a user.
  * @author Nick Hamnett

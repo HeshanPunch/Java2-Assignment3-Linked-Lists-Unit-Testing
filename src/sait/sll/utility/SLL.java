@@ -9,11 +9,8 @@ import java.io.Serializable;
  *
  */
 
-public class SLL implements LinkedListADT, Serializable {
+public class SLL implements LinkedListADT {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3573643620247565377L;
 	private Node head;
 	private Node tail;
@@ -37,8 +34,8 @@ public class SLL implements LinkedListADT, Serializable {
 	 * Clears the list.
 	 */
 	public void clear() {
-		size = 0;
-		head = tail = null;
+		this.size = 0;
+		this.head = this.tail = null;
 	}
 
 	/**
@@ -87,7 +84,7 @@ public class SLL implements LinkedListADT, Serializable {
 
 		if (index == 0) {
 			prepend(data);
-
+			size++;
 		} else if (index >= size()) {
 			// add last
 			tail.setNext(newNode);
@@ -127,7 +124,7 @@ public class SLL implements LinkedListADT, Serializable {
 	 * @return Size of list (0 meaning empty)
 	 */
 	public int size() {
-		return size;
+		return this.size;
 	}
 
 	/**

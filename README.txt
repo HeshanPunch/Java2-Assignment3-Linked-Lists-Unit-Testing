@@ -22,6 +22,4 @@ Node class to create Node objects to be used by SLL
 
 User class for creating objects to serialize/ deserialization
 
-TestSerialization class for serializing/deserialization
-
 JUnit test cases for SLL and Serialization
