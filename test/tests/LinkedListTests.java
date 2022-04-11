@@ -8,9 +8,11 @@ import sait.sll.utility.*;
 
 
 /**
+ * Tests SLL class methods
  * @author Nick Hamnett
  * @author Maryam Moussavi
- * @version 2020-03-24
+ * @author Paolo Araujo, Heshan Punchihewa, Gukhee "Lauren" Sung
+ * @version 2022-04-10
  *
  */
 class LinkedListTests {
@@ -303,7 +305,7 @@ class LinkedListTests {
 		 * a -> b -> c
 		 */
 		
-		//returns null and prints error message, exception is handled
+		//returns null and prints error message for index out of bounds, exception is handled
 		assertEquals(null, this.linkedList.retrieve(3));	
 		assertEquals(null, this.linkedList.retrieve(-3));
 		assertEquals(null, this.linkedList.retrieve(100));

@@ -21,7 +21,7 @@ public class User implements Serializable{
 	
 	private String email;
 	
-	private String password;
+	private transient String password;
 	
 	/**
 	 * Initializes a User object.
@@ -86,4 +86,12 @@ public class User implements Serializable{
 		
 		return this.id == other.id && this.name.equals(other.name) && this.email.equals(other.email);
 	}
+
+	//used for testing
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+	}
+	
+	
 }

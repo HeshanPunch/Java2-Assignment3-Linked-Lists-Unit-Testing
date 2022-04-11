@@ -1,6 +1,13 @@
 package sait.sll.utility;
-
 import java.io.Serializable;
+
+/**
+ * SLL class that is used to create/manipulate Linked Lists
+ * SLL class implements LinkedListADT
+ * @author Paolo Araujo, Heshan Punchihewa, Gukhee "Lauren" Sung
+ * @version 2022-04-10
+ *
+ */
 
 public class SLL implements LinkedListADT, Serializable {
 
@@ -228,26 +235,6 @@ public class SLL implements LinkedListADT, Serializable {
 		} else {
 			return false;
 		}
-	}
-
-	// for testing - remove later
-	public void print() {
-		for (Node tempNode = head; tempNode != null; tempNode = tempNode.getNext()) {
-			System.out.print(tempNode.getData().toString() + " ");
-		}
-	}
-
-//for testing
-	public static void main(String[] args) {
-		SLL sll = new SLL();
-		sll.append("x");
-		sll.append("y");
-		sll.append("z");
-		sll.print();
-
-		System.out.println(" Size is: " + sll.size);
-		sll.print();
-
 	}
 
 }
